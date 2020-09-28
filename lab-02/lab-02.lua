@@ -109,6 +109,30 @@ function ui.ctgB:on_clicked(...)
 
 end
 
+function ui.msB:on_clicked(...)
+	ui.MemoryTB.label = ui.ResultTB.label;
+end
+
+function ui.mrB:on_clicked(...)
+	ui.ResultTB.label = ui.MemoryTB.label;
+end
+
+function ui.rcB:on_clicked(...)
+	ui.ResultTB.label = 0;
+end
+
+function ui.mcB:on_clicked(...)
+	ui.MemoryTB.label = 0;
+end
+
+function ui.mmB:on_clicked(...)
+	ui.ResultTB.label = ui.ResultTB.label - ui.MemoryTB.label;
+end
+
+function ui.mpB:on_clicked(...)
+	ui.ResultTB.label = ui.ResultTB.label + ui.MemoryTB.label;
+end
+
 gtk.main()
 
 
