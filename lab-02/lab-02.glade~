@@ -172,6 +172,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Сложение чисел</property>
                 <property name="image">image4</property>
                 <property name="always_show_image">True</property>
                 <style>
@@ -190,6 +191,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Разность чисел</property>
                 <property name="image">image3</property>
                 <property name="always_show_image">True</property>
                 <style>
@@ -208,6 +210,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Произведение чисел</property>
                 <property name="image">image2</property>
                 <property name="always_show_image">True</property>
                 <style>
@@ -226,6 +229,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Частное чисел</property>
                 <property name="image">image1</property>
                 <property name="always_show_image">True</property>
                 <style>
@@ -257,6 +261,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Значение угла синуса</property>
                 <property name="margin_bottom">1</property>
                 <style>
                   <class name="btn"/>
@@ -274,6 +279,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Значение угла косинуса</property>
                 <style>
                   <class name="btn"/>
                 </style>
@@ -290,6 +296,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Значение угла тангенса </property>
                 <style>
                   <class name="btn"/>
                 </style>
@@ -306,6 +313,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Значение угла котангенса</property>
                 <style>
                   <class name="btn"/>
                 </style>
@@ -335,6 +343,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Запись результата в память</property>
                 <style>
                   <class name="btn"/>
                 </style>
@@ -351,6 +360,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Запись значения из памяти в результат</property>
                 <style>
                   <class name="btn"/>
                 </style>
@@ -367,6 +377,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Разность значений результата и памяти</property>
                 <style>
                   <class name="btn"/>
                 </style>
@@ -383,6 +394,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Сумма значений результата и памяти</property>
                 <style>
                   <class name="btn"/>
                 </style>
@@ -399,6 +411,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Очистка результата</property>
                 <style>
                   <class name="btn"/>
                 </style>
@@ -415,6 +428,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Очистка памяти</property>
                 <style>
                   <class name="btn"/>
                 </style>
