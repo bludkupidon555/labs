@@ -77,7 +77,7 @@ end
 selRow=0
 
 function ui.dataTree:on_select_cursor_row(...)
-	selRow=dataTree.select_row()
+	selRow=dataTree.select_row
 end
 
 function protectAddB()
