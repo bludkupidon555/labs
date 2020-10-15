@@ -70,14 +70,23 @@ function ui.addB:on_clicked(...) -- Нажатие на кнопку "Add"
 	ui.dataList[i] = {[1] = name, [2] = count, [3] = price, [4] = total, [5] = px}
 end
 
-function ui.delB:on_clicked(...)
-	ui.stateL.label = selRow
+function ui.saveB:on_clicked(...)
+	buys = io.open("products.txt", "w")
+	data = ui.dataList:get_iter_first()
+	cols = {int=1}
+	value = ui.dataList:get_value(data, )
+	ui.stateL.label = value
+	buys:close()
 end
 
-selRow=0
+function ui.delB:on_clicked(...)
+	ui.sel=ui.dataTree:get_selection()
+	model, iter = ui.sel:get_selected()
+	ui.dataList:remove(iter)
+end
 
-function ui.dataTree:on_select_cursor_row(...)
-	selRow=dataTree.select_row()
+function ui.clearB:on_clicked(...)
+	ui.dataList:clear()
 end
 
 function protectAddB()

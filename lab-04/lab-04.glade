@@ -493,7 +493,7 @@
                 <property name="headers_clickable">False</property>
                 <property name="rubber_banding">True</property>
                 <child internal-child="selection">
-                  <object class="GtkTreeSelection"/>
+                  <object class="GtkTreeSelection" id="sel"/>
                 </child>
               </object>
             </child>
