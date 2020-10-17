@@ -46,11 +46,60 @@ ui.dataTree:append_column(c3)
 ui.dataTree:append_column(c4)
 ui.dataTree:append_column(c5)
 
-rbArr={ui.rbApple, ui.rbBlueberry, ui.rbCherry, ui.rbGrapes, ui.rbLemon, ui.rbOrange, ui.rbPear, ui.rbRaspberry, ui.rbStrawberry}
+rbArr = {ui.rbApple, ui.rbBlueberry, ui.rbCherry, ui.rbGrapes, ui.rbLemon, ui.rbOrange, ui.rbPear, ui.rbRaspberry, ui.rbStrawberry}
+
+imgArr = {picture.new_from_file("Apple.png"), picture.new_from_file("Blueberry.png"), picture.new_from_file("Cherry.png"), picture.new_from_file("Grapes.png"), picture.new_from_file("Lemon.png"), picture.new_from_file("Orange.png"), picture.new_from_file("Pear.png"), picture.new_from_file("Raspberry.png"), picture.new_from_file("Strawberry.png"),}
+
+function dataload()
+	readstr = {}
+	count = 0
+	buys = io.open("products.txt", "r")
+	for i in buys:lines() do
+		readstr[count] = tostring(i)
+		splitarr = {}
+
+		index = 1
+		for s in string.gmatch(readstr[count], "%S+") do
+			splitarr[index] = s
+			index = index + 1
+		end
+		
+		name = splitarr[1]
+		count = splitarr[2]
+		price = splitarr[3]
+		total = splitarr[4]
+		n = splitarr[5]
+		px = imgArr[math.floor(n)]
+		
+		i = ui.dataList:append() 
+		ui.dataList[i] = {[1] = name, [2] = count, [3] = price, [4] = total, [5] = px}
+
+		count = count + 1
+	end
+	buys:close()
+	
+end
+
+function ui.loadB:on_clicked()
+	dataload()
+end
 
 function ui.addB:on_clicked(...) -- Нажатие на кнопку "Add"
 	s =protectAddB() -- Функция выполняющая роль защиты от дурака; проверка на пустоту и корректность вводимых данных
 	if (s~='') then return end
+
+	c=-1
+
+	for s in string.gmatch(ui.nameTB.text, "%S+") do
+		c = c + 1
+	end
+	
+	if(c>0) 
+	then
+		ui.stateL.label = 'State: Spaces are not allowed!'
+		return 
+	end	
+
 	ui.stateL.label = 'State: OK!' -- Все зае**сь получаеца
 
 	name = ui.nameTB.text
@@ -58,25 +107,60 @@ function ui.addB:on_clicked(...) -- Нажатие на кнопку "Add"
 	price = tonumber(ui.priceTB.text)
 	total = price * count
 	file =''
-	
+	px=0
 	for i = 1, 9, 1 do
-		if(rbArr[i].active==true) then file = rbArr[i].label..'.png' end	
+		if(rbArr[i].active==true) 
+		then
+			file = rbArr[i].label..'.png'
+			px = imgArr[i]
+
+			i = ui.dataList:append() 
+			ui.dataList[i] = {[1] = name, [2] = count, [3] = price, [4] = total, [5] = px}
+		end
 	end
-
-
-	px=picture.new_from_file(file)
-
-	i = ui.dataList:append() 
-	ui.dataList[i] = {[1] = name, [2] = count, [3] = price, [4] = total, [5] = px}
+	
 end
 
 function ui.saveB:on_clicked(...)
+	
+	arrstr = {} -- массив всех строк из liststore
+	arrcolumns = {} -- массив для колон одной строки, нужен чтобы собрать из всех колонок целую строку. Уметь бы нормально пользоваться метатаблицами 
+	
+	iter = ui.dataList:get_iter_first() -- первый итератор	
+	count = 0
+
+while iter~=nil do
+	for i = 0, 4, 1 do
+		values = ui.dataList:get_value(iter, i)
+		if (i==4) then
+			for j = 1, 9, 1 do
+				pb1 = tostring(imgArr[j])
+				pb2 = tostring(values.value)
+		
+				if(pb1==pb2) then
+					arrcolumns[i] = j
+				end
+			end	
+		else
+			arrcolumns[i] = values.value
+			
+		end
+	end
+	
+	if(type(tonumber(arrcolumns[0]))=='number') then math.floor(arrcolumns[0]) end
+
+	arrstr[count] = arrcolumns[0].." "..math.floor(arrcolumns[1]).." "..math.floor(arrcolumns[2]).." "..math.floor(arrcolumns[3]).." "..arrcolumns[4]..'\n'
+	
+	ui.dataList:remove(iter)
+	iter = ui.dataList:get_iter_first()
+	count=count+1
+end
 	buys = io.open("products.txt", "w")
-	data = ui.dataList:get_iter_first()
-	cols = {int=1}
-	value = ui.dataList:get_value(data, )
-	ui.stateL.label = value
+	for i = 0 , count-1, 1 do
+		buys:write(arrstr[i])
+	end
 	buys:close()
+	dataload()
 end
 
 function ui.delB:on_clicked(...)
