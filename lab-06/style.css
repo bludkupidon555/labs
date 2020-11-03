@@ -1,6 +1,23 @@
 .label{
-	font-family: "Monospace Bold Italic";
-	font-size: 14pt;
-	color: red;
+	font-family: "Teams";
+	font-size: 20pt;
+	color: blue;
+}
+
+.button{
+	font-family: "Teams";
+	font-size: 15pt;
+	color: #dbde26;
+	background: #e98888;
+}
+
+.button:hover{
+	color: #e98888;
+	background: #dbde26;
+}
+
+
+.form{
+
 }
 
