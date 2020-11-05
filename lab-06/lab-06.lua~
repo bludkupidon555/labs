@@ -1,5 +1,5 @@
 lgi = require 'lgi'
-sqlit = require 'lsqlite3'
+sqlit = require 'sqllite3'
 
 gtk = lgi.Gtk
 gdk = lgi.Gdk

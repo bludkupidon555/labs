@@ -204,6 +204,7 @@
   <object class="GtkWindow" id="DatabaseForm">
     <property name="can_focus">False</property>
     <property name="resizable">False</property>
+    <property name="modal">True</property>
     <property name="transient_for">MainForm</property>
     <child>
       <placeholder/>
