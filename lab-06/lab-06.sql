@@ -1,13 +1,28 @@
-DROP TABLE IF EXISTS employeeList;
-CREATE TABLE employeeList (Name TEXT);
+DROP TABLE IF EXISTS emptable;
+CREATE TABLE emptable (Name TEXT);
 
-INSERT INTO employeeList VALUES ('Rublev Dmitriy');
-INSERT INTO employeeList VALUES ('Turubar Ivan');
-INSERT INTO employeeList VALUES ('Prilipchanu Daniil');
-INSERT INTO employeeList VALUES ('Zinko Danil');
-INSERT INTO employeeList VALUES ('Pogodin Petr');
-INSERT INTO employeeList VALUES ('Krivosheev Alexey');
-INSERT INTO employeeList VALUES ('Arthas');
-INSERT INTO employeeList VALUES ('Lich King');
-INSERT INTO employeeList VALUES ('Murlok');
-INSERT INTO employeeList VALUES ('Sylvanas Windrunner');
+INSERT INTO emptable VALUES ('Rublev Dmitriy');
+INSERT INTO emptable VALUES ('Turubar Ivan');
+INSERT INTO emptable VALUES ('Prilipchanu Daniil');
+INSERT INTO emptable VALUES ('Zinko Danil');
+INSERT INTO emptable VALUES ('Pogodin Petr');
+INSERT INTO emptable VALUES ('Krivosheev Alexey');
+INSERT INTO emptable VALUES ('Arthas');
+INSERT INTO emptable VALUES ('Lich King');
+INSERT INTO emptable VALUES ('Murlok');
+INSERT INTO emptable VALUES ('Sylvanas Windrunner');
+
+
+DROP TABLE IF EXISTS langtable;
+CREATE TABLE langtable (Language TEXT);
+
+INSERT INTO langtable VALUES ('С');
+INSERT INTO langtable VALUES ('Java');
+INSERT INTO langtable VALUES ('Phyton');
+INSERT INTO langtable VALUES ('C++');
+INSERT INTO langtable VALUES ('C#');
+INSERT INTO langtable VALUES ('Visual Basic');
+INSERT INTO langtable VALUES ('JavaSrcipt');
+INSERT INTO langtable VALUES ('R');
+INSERT INTO langtable VALUES ('PHP');
+INSERT INTO langtable VALUES ('Swift');

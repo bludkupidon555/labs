@@ -1,5 +1,5 @@
 lgi = require 'lgi'
-sqlit = require 'lsqlite3'
+sqlite = require 'lsqlite3'
 
 gtk = lgi.Gtk
 gdk = lgi.Gdk
@@ -20,22 +20,34 @@ ui.MainForm.title = 'lab-06_473_Turubar_Prilipchanu'
 ui.MainForm.on_destroy = gtk.main_quit
 ui.MainForm:show_all()
 
-c1 = gtk.TreeViewColumn {title = 'Name', {rdr_text, { text = 1}}  }
+rdr_txt = gtk.CellRendererText {xalign=0.5}
 
+emp1 = gtk.TreeViewColumn {title = 'Employee name', 	{rdr_txt, { text = 1 }}	}
+emp1:set_alignment(0.5)
+ui.employeeTree:append_column(emp1)
 
-db = sqlite.open('lab0-6.db')
-
-for row in db:nrows('SELECT *FROM employeeList') do
-	el = ui.employeeList:append()
-	ui.employeeList[el] = {[1] = row.Name}
-end
-
-db.close()
+lang1 = gtk.TreeViewColumn {title = 'Programming language', 	{rdr_txt, { text = 1 }}	}
+lang1:set_alignment(0.5)
+ui.languageTree:append_column(lang1)
 
 
 ui.DatabaseForm.title = 'Database Tables'
 function ui.tablesB:on_clicked(...)
 	ui.DatabaseForm:show_all()
+
+	db = sqlite.open('lab-06.db')
+
+	for row in db:nrows('SELECT *FROM emptable') do
+		el = ui.employeeList:append()
+		ui.employeeList[el] = {[1] = row.Name}
+	end
+
+	for row in db:nrows('SELECT *FROM langtable') do
+		el = ui.languageList:append()
+		ui.languageList[el] = {[1] = row.Language}
+	end
+
+	db:close()
 end
 
 function ui.closetablesB:on_clicked(...)
